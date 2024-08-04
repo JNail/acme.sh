@@ -60,6 +60,7 @@ dns_desec_add() {
   _debug txtvalues "$txtvalues"
   _info "Adding record"
   body="[{\"subname\":\"$_sub_domain\", \"type\":\"TXT\", \"records\":[$txtvalues], \"ttl\":3600}]"
+  # just to comit to test original
 
   if _desec_rest PUT "$REST_API/$_domain/rrsets/" "$body"; then
     if _contains "$response" "$txtvalue"; then
